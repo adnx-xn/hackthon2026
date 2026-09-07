@@ -1,0 +1,7 @@
+{
+    "venvPath": "C:\\Users\\ultra\\OneDrive\\Desktop\\SIH26",
+    "venv": ".venv",
+    "extraPaths": [
+        "backend"
+    ]
+}

@@ -1,0 +1,8 @@
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=bottomT&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/volume?variable=bottomT&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=bottomT&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=bottomT&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=bottomT&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=bottomT&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=siconc&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')
+422 (ValueError) on http://127.0.0.1:8000/api/v1/datasets/copernicus_indian_ocean/data?variable=mlotst&depth_idx=0&time_idx=0: Dimensions {'depth'} do not exist. Expected one or more of ('time', 'latitude', 'longitude')

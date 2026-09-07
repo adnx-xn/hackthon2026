@@ -1,0 +1,126 @@
+{
+  "copernicus_indian_ocean": {
+    "displayName": "Copernicus Indian Ocean",
+    "status": "available",
+    "fileName": "copernicus_indian_ocean.nc",
+    "views": {
+      "Temperature": {
+        "label": "Temperature",
+        "variable": "thetao",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "Salinity": {
+        "label": "Salinity",
+        "variable": "so",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "Currents": {
+        "label": "Currents",
+        "uVariable": "uo",
+        "vVariable": "vo",
+        "status": "available",
+        "renderType": "surfaceVectors",
+        "depthIdx": 0
+      },
+      "Depth": {
+        "label": "Depth",
+        "status": "planned"
+      },
+      "Chlorophyll": {
+        "label": "Chlorophyll",
+        "status": "planned"
+      }
+    }
+  },
+  "indian_ocean": {
+    "displayName": "Indian Ocean Data",
+    "status": "available",
+    "fileName": "indian_ocean.nc",
+    "views": {
+      "uo": {
+        "label": "Eastward sea water velocity (uo) [m/s]",
+        "variable": "uo",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "vo": {
+        "label": "Northward sea water velocity (vo) [m/s]",
+        "variable": "vo",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "thetao": {
+        "label": "Sea water potential temperature (thetao) [°C]",
+        "variable": "thetao",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "so": {
+        "label": "Sea water salinity (so) [/ 10^3]",
+        "variable": "so",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      }
+    }
+  },
+  "test_model": {
+    "displayName": "Test Ocean Model",
+    "status": "available",
+    "fileName": "test_model.nc",
+    "views": {
+      "Temperature": {
+        "label": "Temperature",
+        "variable": "thetao",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "Salinity": {
+        "label": "Salinity",
+        "variable": "so",
+        "status": "available",
+        "renderType": "scalarSurface",
+        "depthIdx": 0
+      },
+      "Currents": {
+        "label": "Currents",
+        "uVariable": "uo",
+        "vVariable": "vo",
+        "status": "available",
+        "renderType": "surfaceVectors",
+        "depthIdx": 0
+      }
+    }
+  },
+  "incois_ocean_model": {
+    "displayName": "INCOIS Ocean Model",
+    "status": "planned",
+    "fileName": "incois_model.nc",
+    "views": {
+      "Temperature": {
+        "label": "Temperature",
+        "status": "planned"
+      },
+      "Salinity": {
+        "label": "Salinity",
+        "status": "planned"
+      },
+      "Currents": {
+        "label": "Currents",
+        "status": "planned"
+      },
+      "Chlorophyll": {
+        "label": "Chlorophyll",
+        "status": "planned"
+      }
+    }
+  }
+}

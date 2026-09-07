@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+xarray
+netCDF4
+numpy
+pandas
+python-dotenv
+pytest
+httpx
+scipy
+matplotlib
+pillow
