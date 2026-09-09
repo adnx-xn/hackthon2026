@@ -63,7 +63,7 @@ export default function OceanCanvas() {
     <>
       <Canvas
         camera={{ position: [0, 0, 25000], fov: 45, near: 1, far: 100000 }}
-        style={{ width: '100%', height: '100%', background: '#0a0a1a' }}
+        style={{ width: '100%', height: '100%', background: '#020208ff' }}
       >
       {/* Disable directional lighting for uniform Earth appearance. 
           When ocean layers are added later, lighting may be re-enabled for them. */}

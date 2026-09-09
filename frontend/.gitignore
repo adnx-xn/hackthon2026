@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+#data model
+data/models/indian_ocean.nc
+data/models/test_model.nc
+data/models/ocean_model.nc
+data/geography/exportImage.tiff
+
