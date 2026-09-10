@@ -25,27 +25,11 @@ class ErrorBoundaryInner extends React.Component {
     if (this.state.hasError) {
       return (
         <Html center>
-          <div style={{
-            background: 'rgba(0, 0, 0, 0.8)',
-            padding: '20px',
-            borderRadius: '8px',
-            color: 'white',
-            textAlign: 'center',
-            border: '1px solid #ff4444',
-            fontFamily: 'sans-serif',
-            width: '250px'
-          }}>
-            <h4 style={{ color: '#ff4444', margin: '0 0 10px 0' }}>Scientific layer failed.</h4>
+          <div className="bg-[rgba(0,0,0,0.8)] p-[20px] rounded-[8px] text-white text-center border border-[#ff4444] font-sans w-[250px]">
+            <h4 className="text-[#ff4444] m-[0_0_10px_0]">Scientific layer failed.</h4>
             <button 
               onClick={this.handleReset}
-              style={{
-                background: '#333',
-                color: 'white',
-                border: '1px solid #666',
-                padding: '8px 16px',
-                borderRadius: '4px',
-                cursor: 'pointer'
-              }}
+              className="bg-[#333] text-white border border-[#666] py-[8px] px-[16px] rounded-[4px] cursor-pointer"
             >
               Return to None
             </button>

@@ -189,6 +189,9 @@ export default function ColormapWidget() {
               key={i}
               onPointerDown={(e) => handlePointerDown(e, i)}
               onDoubleClick={() => removeStop(i)}
+              className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-[14px] h-[24px] bg-[#fff] border border-[#000] rounded-[2px] flex justify-center items-center ${
+                i === 0 || i === activeStops.length - 1 ? 'cursor-default' : 'cursor-ew-resize'
+              }`}
               style={{
                 position: 'absolute', left: `${stop.position * 100}%`, top: '50%',
                 transform: 'translate(-50%, -50%)', width: '12px', height: '20px',

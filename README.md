@@ -1,4 +1,4 @@
-# 3D Ocean Data Visualization System
+# Oceanis 3D Visualization System
 
 **INCOIS — Indian National Centre for Ocean Information Services**
 
@@ -8,7 +8,7 @@
 
 ## Project Overview
 
-The 3D Ocean Data Visualization System is a web application built for INCOIS that renders ocean model fields and observational instrument data in a single, **interactive browser-based 3D WebGL scene**. It eliminates the need for desktop scientific visualization software by delivering depth-resolved, time-animated, interactive 3D ocean variable visualizations directly in a modern web browser.
+The Oceanis 3D is a web application built for INCOIS that renders ocean model fields and observational instrument data in a single, **interactive browser-based 3D WebGL scene**. It eliminates the need for desktop scientific visualization software by delivering depth-resolved, time-animated, interactive 3D ocean variable visualizations directly in a modern web browser.
 
 The primary visualization mode is **interactive 3D depth-slice visualization**: colored horizontal mesh layers rendered inside a Three.js 3D scene, positioned at the correct ocean depth, navigable by depth level and time step, with full camera rotation/zoom/pan, vertical exaggeration, and current vector arrows overlaid in 3D space.
 

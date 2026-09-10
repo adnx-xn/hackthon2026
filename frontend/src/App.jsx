@@ -1,39 +1,29 @@
-import React from 'react';
-import { useAppState } from './context/AppContext';
-import OceanCanvas from './components/OceanCanvas/OceanCanvas';
-import ControlPanel from './components/ControlPanel/ControlPanel';
-import StatusBar from './components/StatusBar/StatusBar';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home';
+import Visualization from './pages/Visualization';
+import About from './pages/About';
 import './App.css';
 
 function App() {
-  const { isLoading, error } = useAppState();
+  const [currentPage, setCurrentPage] = useState('visualization');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <Home />;
+      case 'about':
+        return <About />;
+      case 'visualization':
+      default:
+        return <Visualization />;
+    }
+  };
 
   return (
-    <div className="app-container">
-      <header className="app-header">
-        <h1>INCOIS 3D Ocean Data Visualization</h1>
-        {isLoading && <span className="loading-indicator">Loading...</span>}
-      </header>
-
-      {error && (
-        <div className="error-banner">
-          <p>Error: {error.message || 'An unexpected error occurred.'}</p>
-        </div>
-      )}
-
-      <main className="app-main">
-        <div className="canvas-container">
-          <OceanCanvas />
-        </div>
-
-        <aside className="control-panel-container">
-          <ControlPanel />
-        </aside>
-      </main>
-
-      <footer className="app-footer">
-        <StatusBar />
-      </footer>
+    <div className="flex flex-col min-h-screen w-screen relative bg-[linear-gradient(180deg,rgba(2,6,23,0.2),rgba(2,12,27,0.35))]">
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      {renderPage()}
     </div>
   );
 }
