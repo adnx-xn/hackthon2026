@@ -6,7 +6,7 @@ export default function LayerControls() {
   const dispatch = useAppDispatch();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+    <div className="flex flex-col gap-[10px]">
       <h4>Layer Visibility</h4>
       
       <div>
@@ -15,6 +15,7 @@ export default function LayerControls() {
             type="checkbox" 
             checked={state.showCurrentVectors}
             onChange={(e) => dispatch({ type: 'TOGGLE_VECTORS', payload: e.target.checked })}
+            className="accent-[#38bdf8] w-[15px] h-[15px] cursor-pointer"
           />
           {' '}Current Vectors (if available)
         </label>
@@ -30,13 +31,14 @@ export default function LayerControls() {
                 type: 'TOGGLE_OBS_LAYER', 
                 payload: { layer, visible: e.target.checked } 
               })}
+              className="accent-[#38bdf8] w-[15px] h-[15px] cursor-pointer"
             />
             {' '}{layer.toUpperCase().replace('_', ' ')} Markers
           </label>
         </div>
       ))}
 
-      <div style={{ marginTop: '10px' }}>
+      <div className="mt-[10px]">
         <label>Model Layer Opacity ({state.layerOpacity.toFixed(2)}): </label>
         <input 
           type="range" 
@@ -45,6 +47,7 @@ export default function LayerControls() {
           step="0.05"
           value={state.layerOpacity}
           onChange={(e) => dispatch({ type: 'SET_LAYER_OPACITY', payload: parseFloat(e.target.value) })}
+          className="appearance-none w-full h-[4px] p-0 border-none rounded-[10px] bg-[linear-gradient(90deg,rgba(56,189,248,0.75),rgba(30,64,175,0.4))] cursor-pointer"
         />
       </div>
     </div>

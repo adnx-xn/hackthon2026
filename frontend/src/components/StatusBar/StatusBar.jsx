@@ -16,7 +16,7 @@ export default function StatusBar() {
     : 'T0';
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 20px', background: '#181717ff', color: '#ccc', fontSize: '14px', borderTop: '1px solid #333', width: '100%', boxSizing: 'border-box' }}>
+    <div className="flex justify-between py-[10px] px-[20px] bg-[#030f1dfa] text-[#ccc] text-[14px] border-t border-[#333] w-full box-border">
       <div>
         <strong>Dataset:</strong> {datasetName} &nbsp;|&nbsp; 
         <strong> Variable:</strong> {variable} &nbsp;|&nbsp; 
@@ -24,8 +24,8 @@ export default function StatusBar() {
         <strong> Time:</strong> {time}
       </div>
       <div>
-        {state.isLoading ? <span style={{ color: '#00ffcc' }}>Loading data...</span> : <span>Ready</span>}
+        {state.isLoading ? <span className="text-[#00ffcc]">Loading data...</span> : <span>Ready</span>}
       </div>
-    </div>
+    </div>  
   );
 }

@@ -37,7 +37,7 @@ export default function EarthBase() {
       </points>
 
       {/* Ambient light ensures the Earth texture remains fully visible without a directional light */}
-      <ambientLight intensity={3} color="#ffffffff" />
+      <ambientLight intensity={5} color="#ffffffff" />
 
       {/* Main Earth Sphere */}
       <mesh rotation={[0, -Math.PI / 2, 0]}>
