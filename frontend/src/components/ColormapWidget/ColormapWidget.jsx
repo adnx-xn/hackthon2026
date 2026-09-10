@@ -111,12 +111,12 @@ export default function ColormapWidget() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+    <div className="flex flex-col gap-[10px]">
       <h4>Colormap Controls</h4>
       
       <div>
         <label>Preset Palette: </label>
-        <select value={state.colormapPalette} onChange={handlePaletteChange}>
+        <select value={state.colormapPalette} onChange={handlePaletteChange} className="w-full py-[9px] px-[11px] rounded-[8px] border border-[rgba(71,85,105,0.55)] bg-[rgba(2,12,27,0.72)] text-[#f8fafc] font-[inherit] text-[0.82rem] outline-none transition-all duration-200 ease-out hover:border-[rgba(56,189,248,0.3)] focus:border-[#38bdf8] focus:bg-[rgba(4,22,42,0.9)] focus:shadow-[0_0_0_3px_rgba(56,189,248,0.08)]">
           <option value="viridis">Viridis</option>
           <option value="plasma">Plasma</option>
           <option value="coolwarm">Coolwarm</option>
@@ -130,47 +130,26 @@ export default function ColormapWidget() {
         <div 
           ref={trackRef}
           onPointerDown={handleTrackClick}
-          style={{ 
-            height: '20px', 
-            background: gradientString, 
-            borderRadius: '4px',
-            position: 'relative',
-            marginTop: '10px',
-            cursor: 'crosshair',
-            userSelect: 'none'
-          }}
+          className="h-[20px] rounded-[4px] relative mt-[10px] cursor-crosshair select-none"
+          style={{ background: gradientString }}
         >
           {activeStops.map((stop, i) => (
             <div 
               key={i}
               onPointerDown={(e) => handlePointerDown(e, i)}
               onDoubleClick={() => removeStop(i)}
+              className={`absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-[14px] h-[24px] bg-[#fff] border border-[#000] rounded-[2px] flex justify-center items-center ${
+                i === 0 || i === activeStops.length - 1 ? 'cursor-default' : 'cursor-ew-resize'
+              }`}
               style={{
-                position: 'absolute',
                 left: `${stop.position * 100}%`,
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '14px',
-                height: '24px',
-                background: '#fff',
-                border: '1px solid #000',
-                borderRadius: '2px',
-                cursor: (i === 0 || i === activeStops.length - 1) ? 'default' : 'ew-resize',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
               }}
             >
               <input 
                 type="color"
                 value={colorToHex(stop.color)}
                 onChange={(e) => updateStopColor(i, e.target.value)}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  opacity: 0,
-                  cursor: 'pointer'
-                }}
+                className="w-full h-full opacity-0 cursor-pointer"
               />
             </div>
           ))}
@@ -182,18 +161,19 @@ export default function ColormapWidget() {
         <select 
           value={state.colormapScale} 
           onChange={(e) => dispatch({ type: 'SET_COLORMAP_SCALE', payload: e.target.value })}
+          className="w-full py-[9px] px-[11px] rounded-[8px] border border-[rgba(71,85,105,0.55)] bg-[rgba(2,12,27,0.72)] text-[#f8fafc] font-[inherit] text-[0.82rem] outline-none transition-all duration-200 ease-out hover:border-[rgba(56,189,248,0.3)] focus:border-[#38bdf8] focus:bg-[rgba(4,22,42,0.9)] focus:shadow-[0_0_0_3px_rgba(56,189,248,0.08)]"
         >
           <option value="linear">Linear</option>
           <option value="log">Log</option>
         </select>
       </div>
 
-      <div style={{ display: 'flex', gap: '10px' }}>
+      <div className="flex gap-[10px]">
         <div>
           <label>Min (auto = empty): </label>
           <input 
             type="number" 
-            style={{ width: '80px' }}
+            className="w-[80px] py-[9px] px-[11px] rounded-[8px] border border-[rgba(71,85,105,0.55)] bg-[rgba(2,12,27,0.72)] text-[#f8fafc] font-[inherit] text-[0.82rem] outline-none transition-all duration-200 ease-out hover:border-[rgba(56,189,248,0.3)] focus:border-[#38bdf8] focus:bg-[rgba(4,22,42,0.9)] focus:shadow-[0_0_0_3px_rgba(56,189,248,0.08)]"
             value={state.colormapMin === null ? '' : state.colormapMin} 
             onChange={handleMinChange}
           />
@@ -202,7 +182,7 @@ export default function ColormapWidget() {
           <label>Max (auto = empty): </label>
           <input 
             type="number" 
-            style={{ width: '80px' }}
+            className="w-[80px] py-[9px] px-[11px] rounded-[8px] border border-[rgba(71,85,105,0.55)] bg-[rgba(2,12,27,0.72)] text-[#f8fafc] font-[inherit] text-[0.82rem] outline-none transition-all duration-200 ease-out hover:border-[rgba(56,189,248,0.3)] focus:border-[#38bdf8] focus:bg-[rgba(4,22,42,0.9)] focus:shadow-[0_0_0_3px_rgba(56,189,248,0.08)]"
             value={state.colormapMax === null ? '' : state.colormapMax} 
             onChange={handleMaxChange}
           />

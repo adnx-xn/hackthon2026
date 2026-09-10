@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Base minimal styles */
 html, body {
   margin: 0;

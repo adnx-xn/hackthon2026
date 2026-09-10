@@ -53,39 +53,24 @@ export default function ScientificLegend() {
   )`;
 
   return (
-    <div style={{
-      position: 'absolute',
-      bottom: '30px',
-      left: '30px',
-      background: 'rgba(10, 10, 26, 0.8)',
-      padding: '15px',
-      borderRadius: '8px',
-      color: 'white',
-      fontFamily: 'sans-serif',
-      border: '1px solid #333',
-      zIndex: 1000,
-      minWidth: '120px'
-    }}>
-      <div style={{ fontSize: '12px', fontWeight: 'bold', marginBottom: '10px', textTransform: 'uppercase' }}>
+    <div className="absolute bottom-[30px] left-[30px] bg-[rgba(10,10,26,0.8)] p-[15px] rounded-[8px] text-white font-sans border border-[#333] z-[1000] min-w-[120px]">
+      <div className="text-[12px] font-bold mb-[10px] uppercase">
         {config.label} {config.units ? `(${config.units})` : ''}
       </div>
       
       {config.showGradient ? (
-        <div style={{ display: 'flex', alignItems: 'center', height: '150px' }}>
-          <div style={{
-            width: '20px',
-            height: '100%',
-            background: gradientStr,
-            marginRight: '10px',
-            borderRadius: '4px'
-          }} />
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', fontSize: '12px' }}>
+        <div className="flex items-center h-[150px]">
+          <div 
+            className="w-[20px] h-full mr-[10px] rounded-[4px]"
+            style={{ background: gradientStr }}
+          />
+          <div className="flex flex-col justify-between h-full text-[12px]">
             <div>{typeof config.max === 'number' ? config.max.toFixed(2) : config.max}</div>
             <div>{typeof config.min === 'number' ? config.min.toFixed(2) : config.min}</div>
           </div>
         </div>
       ) : (
-        <div style={{ fontSize: '12px', color: '#aaa' }}>
+        <div className="text-[12px] text-[#aaa]">
           Vector display
         </div>
       )}
