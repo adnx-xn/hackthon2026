@@ -111,102 +111,155 @@ export default function ColormapWidget() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      <h4>Colormap Controls</h4>
-      
-      <div>
-        <label>Preset Palette: </label>
-        <select value={state.colormapPalette} onChange={handlePaletteChange}>
-          <option value="viridis">Viridis</option>
-          <option value="plasma">Plasma</option>
-          <option value="coolwarm">Coolwarm</option>
-          <option value="jet">Jet</option>
-          <option value="custom">Custom</option>
-        </select>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '10px',
+      fontFamily: "'Inter', 'Segoe UI', sans-serif",
+    }}>
+      {/* Section header */}
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '7px',
+        paddingBottom: '8px',
+        borderBottom: '1px solid rgba(56,189,248,0.12)',
+      }}>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="8" cy="9" r="1.5" fill="#38bdf8" stroke="none"/>
+          <circle cx="15" cy="9" r="1.5" fill="#38bdf8" stroke="none"/>
+          <circle cx="12" cy="15" r="1.5" fill="#38bdf8" stroke="none"/>
+        </svg>
+        <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94a3b8' }}>
+          Colormap Controls
+        </span>
       </div>
 
-      <div>
-        <label>Gradient (Click track to add, Double-click thumb to remove, Drag to move):</label>
-        <div 
+      {/* Preset Palette */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+        <label style={{ fontSize: '0.69rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.04em', textTransform: 'uppercase', margin: 0 }}>
+          Preset Palette
+        </label>
+        <div style={{ position: 'relative' }}>
+          <select
+            value={state.colormapPalette}
+            onChange={handlePaletteChange}
+            style={{
+              width: '100%', height: '34px', appearance: 'none', WebkitAppearance: 'none',
+              padding: '0 28px 0 10px', background: 'rgba(3,14,30,0.55)',
+              border: '1px solid rgba(56,189,248,0.18)', borderRadius: '8px',
+              color: '#e2e8f0', fontSize: '0.78rem', fontWeight: 500,
+              outline: 'none', cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            <option value="viridis">Viridis</option>
+            <option value="plasma">Plasma</option>
+            <option value="coolwarm">Coolwarm</option>
+            <option value="jet">Jet</option>
+            <option value="custom">Custom</option>
+          </select>
+          <svg style={{ position: 'absolute', right: 9, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
+            width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+      </div>
+
+      {/* Gradient track */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+        <label style={{ fontSize: '0.69rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.04em', textTransform: 'uppercase', margin: 0 }}>
+          Gradient{' '}
+          <span style={{ fontWeight: 400, textTransform: 'none', color: '#475569', fontSize: '0.63rem' }}>
+            · click to add · dbl-click to remove
+          </span>
+        </label>
+        <div
           ref={trackRef}
           onPointerDown={handleTrackClick}
-          style={{ 
-            height: '20px', 
-            background: gradientString, 
-            borderRadius: '4px',
-            position: 'relative',
-            marginTop: '10px',
-            cursor: 'crosshair',
-            userSelect: 'none'
+          style={{
+            height: '16px', background: gradientString, borderRadius: '6px',
+            position: 'relative', cursor: 'crosshair', userSelect: 'none',
+            border: '1px solid rgba(255,255,255,0.08)',
+            boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.35)',
           }}
         >
           {activeStops.map((stop, i) => (
-            <div 
+            <div
               key={i}
               onPointerDown={(e) => handlePointerDown(e, i)}
               onDoubleClick={() => removeStop(i)}
               style={{
-                position: 'absolute',
-                left: `${stop.position * 100}%`,
-                top: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '14px',
-                height: '24px',
-                background: '#fff',
-                border: '1px solid #000',
-                borderRadius: '2px',
-                cursor: (i === 0 || i === activeStops.length - 1) ? 'default' : 'ew-resize',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
+                position: 'absolute', left: `${stop.position * 100}%`, top: '50%',
+                transform: 'translate(-50%, -50%)', width: '12px', height: '20px',
+                background: 'rgba(12,28,52,0.9)', border: '1.5px solid rgba(56,189,248,0.60)',
+                borderRadius: '3px', cursor: (i === 0 || i === activeStops.length - 1) ? 'default' : 'ew-resize',
+                display: 'flex', justifyContent: 'center', alignItems: 'center',
+                boxShadow: '0 0 5px rgba(56,189,248,0.25)',
               }}
             >
-              <input 
+              <input
                 type="color"
                 value={colorToHex(stop.color)}
                 onChange={(e) => updateStopColor(i, e.target.value)}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  opacity: 0,
-                  cursor: 'pointer'
-                }}
+                style={{ width: '100%', height: '100%', opacity: 0, cursor: 'pointer', padding: 0, border: 'none' }}
               />
             </div>
           ))}
         </div>
       </div>
 
-      <div>
-        <label>Scale: </label>
-        <select 
-          value={state.colormapScale} 
-          onChange={(e) => dispatch({ type: 'SET_COLORMAP_SCALE', payload: e.target.value })}
-        >
-          <option value="linear">Linear</option>
-          <option value="log">Log</option>
-        </select>
+      {/* Scale type */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+        <label style={{ fontSize: '0.69rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.04em', textTransform: 'uppercase', margin: 0 }}>
+          Scale
+        </label>
+        <div style={{ position: 'relative' }}>
+          <select
+            value={state.colormapScale}
+            onChange={(e) => dispatch({ type: 'SET_COLORMAP_SCALE', payload: e.target.value })}
+            style={{
+              width: '100%', height: '34px', appearance: 'none', WebkitAppearance: 'none',
+              padding: '0 28px 0 10px', background: 'rgba(3,14,30,0.55)',
+              border: '1px solid rgba(56,189,248,0.18)', borderRadius: '8px',
+              color: '#e2e8f0', fontSize: '0.78rem', fontWeight: 500,
+              outline: 'none', cursor: 'pointer', fontFamily: 'inherit',
+            }}
+          >
+            <option value="linear">Linear</option>
+            <option value="log">Log</option>
+          </select>
+          <svg style={{ position: 'absolute', right: 9, top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none' }}
+            width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <div>
-          <label>Min (auto = empty): </label>
-          <input 
-            type="number" 
-            style={{ width: '80px' }}
-            value={state.colormapMin === null ? '' : state.colormapMin} 
-            onChange={handleMinChange}
-          />
-        </div>
-        <div>
-          <label>Max (auto = empty): </label>
-          <input 
-            type="number" 
-            style={{ width: '80px' }}
-            value={state.colormapMax === null ? '' : state.colormapMax} 
-            onChange={handleMaxChange}
-          />
-        </div>
+      {/* Min / Max */}
+      <div style={{ display: 'flex', gap: '8px' }}>
+        {[
+          { label: 'Min', value: state.colormapMin, handler: handleMinChange },
+          { label: 'Max', value: state.colormapMax, handler: handleMaxChange },
+        ].map(({ label, value, handler }) => (
+          <div key={label} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <label style={{ fontSize: '0.68rem', fontWeight: 600, color: '#64748b', letterSpacing: '0.04em', textTransform: 'uppercase', margin: 0 }}>
+              {label}
+            </label>
+            <input
+              type="number"
+              placeholder="auto"
+              value={value === null ? '' : value}
+              onChange={handler}
+              style={{
+                width: '100%', height: '32px', padding: '0 8px',
+                background: 'rgba(3,14,30,0.55)', border: '1px solid rgba(56,189,248,0.16)',
+                borderRadius: '7px', color: '#e2e8f0', fontSize: '0.77rem',
+                outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box',
+              }}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
