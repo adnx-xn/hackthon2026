@@ -1,5 +1,7 @@
 import React from "react";
 
+import LearnMoreDropdown from "../learn-more/LearnMoreDropdown";
+
 export default function Navbar({ currentPage, setCurrentPage }) {
   const handleNavigation = (page) => {
     setCurrentPage(page);
@@ -9,17 +11,33 @@ export default function Navbar({ currentPage, setCurrentPage }) {
   const navButtonActiveClass = "text-[#ffffff] bg-[linear-gradient(135deg,rgba(24,160,220,0.18),rgba(37,99,235,0.14))] shadow-[inset_0_0_0_1px_rgba(90,205,255,0.12),0_4px_15px_rgba(0,130,200,0.08)] after:content-[''] after:absolute after:left-1/2 after:bottom-[3px] after:w-[16px] after:h-[2px] after:-translate-x-1/2 after:rounded-[10px] after:bg-[#58d8ff] after:shadow-[0_0_8px_rgba(88,216,255,0.65)]";
 
   return (
-    <nav className="h-[68px] min-h-[68px] w-full box-border flex items-center justify-between px-[28px] max-[700px]:px-[15px] relative z-[1000] pointer-events-auto bg-gradient-to-b from-[rgba(3,15,29,0.98)] to-[rgba(2,12,24,0.96)] border-b border-[rgba(90,180,220,0.14)] shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-[16px]">
-      <div className="flex items-center gap-[11px] select-none">
-        <div className="w-[34px] h-[34px] flex items-center justify-center rounded-[9px] text-[#63d9ff] text-[18px] bg-[radial-gradient(circle,rgba(65,210,255,0.22),rgba(20,100,160,0.08))] border border-[rgba(90,210,255,0.2)] shadow-[0_0_18px_rgba(40,190,255,0.08)] max-[480px]:hidden">◉</div>
+    <nav className="h-[64px] min-h-[64px] w-full box-border flex items-center justify-between px-[28px] max-[700px]:px-[16px] relative z-[1000] pointer-events-auto bg-[#020817]/90 border-b border-[rgba(255,255,255,0.07)] shadow-[0_4px_20px_rgba(0,0,0,0.35)] backdrop-blur-[16px]">
+      {/* Left: OceanSight logo */}
+      <div
+        className="flex items-center gap-[10px] select-none cursor-pointer"
+        onClick={() => handleNavigation("home")}
+      >
+        <svg
+          className="w-6 h-6 text-[#38bdf8]"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+          <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+          <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+        </svg>
 
-        <div className="flex flex-col gap-[1px]">
-          <span className="text-[#f3fbff] text-[14px] font-bold tracking-[0.8px] max-[700px]:text-[12px] max-[480px]:text-[11px]">INCOIS</span>
-          <span className="text-[rgba(190,220,235,0.48)] text-[9px] tracking-[1.1px] uppercase max-[700px]:hidden">3D Ocean Visualization</span>
-        </div>
+        <span className="text-white text-[16px] font-bold tracking-[0.4px]">
+          OceanSight
+        </span>
       </div>
 
-      <div className="flex items-center gap-[5px] max-[700px]:gap-[2px] p-[4px] rounded-[11px] bg-[rgba(255,255,255,0.025)] border border-[rgba(140,190,215,0.08)]">
+      {/* Center: Navigation */}
+      <div className="flex items-center gap-[6px] max-[700px]:gap-[2px]">
         <button
           className={`${navButtonBaseClass} ${currentPage === "home" ? navButtonActiveClass : ""}`}
           onClick={() => handleNavigation("home")}
@@ -38,12 +56,40 @@ export default function Navbar({ currentPage, setCurrentPage }) {
           Visualization
         </button>
 
+        <LearnMoreDropdown
+          currentPage={currentPage}
+          onNavigate={handleNavigation}
+          navButtonBaseClass={navButtonBaseClass}
+          navButtonActiveClass={navButtonActiveClass}
+        />
+
         <button
           className={`${navButtonBaseClass} ${currentPage === "about" ? navButtonActiveClass : ""}`}
           onClick={() => handleNavigation("about")}
           aria-current={currentPage === "about" ? "page" : undefined}
         >
           About
+        </button>
+      </div>
+
+      {/* Right: Dark mode moon icon */}
+      <div className="flex items-center gap-[12px] text-[rgba(200,225,242,0.6)] select-none">
+        <div className="w-[5px] h-[5px] rounded-full bg-[#38bdf8]/50" />
+        <button
+          aria-label="Toggle Theme"
+          className="border-none bg-transparent text-[rgba(200,225,242,0.6)] hover:text-white transition-colors cursor-pointer p-1 flex items-center justify-center"
+        >
+          <svg
+            className="w-[17px] h-[17px]"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
         </button>
       </div>
     </nav>

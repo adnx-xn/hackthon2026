@@ -3,6 +3,10 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home';
 import Visualization from './pages/Visualization';
 import About from './pages/About';
+import Temperature from './pages/Temperature';
+import Salinity from './pages/Salinity';
+import VO from './pages/VO';
+import UO from './pages/UO';
 import './App.css';
 
 function App() {
@@ -11,9 +15,22 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home />;
+        return <Home onNavigate={setCurrentPage} />;
       case 'about':
-        return <About />;
+      case '/about':
+        return <About onNavigate={setCurrentPage} />;
+      case 'learn-more/temperature':
+      case '/learn-more/temperature':
+        return <Temperature onNavigate={setCurrentPage} />;
+      case 'learn-more/salinity':
+      case '/learn-more/salinity':
+        return <Salinity onNavigate={setCurrentPage} />;
+      case 'learn-more/vo':
+      case '/learn-more/vo':
+        return <VO onNavigate={setCurrentPage} />;
+      case 'learn-more/uo':
+      case '/learn-more/uo':
+        return <UO onNavigate={setCurrentPage} />;
       case 'visualization':
       default:
         return <Visualization />;
