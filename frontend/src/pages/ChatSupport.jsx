@@ -5,7 +5,7 @@ const FASTBOTS_CHAT_URL =
 
 export default function ChatSupport() {
   return (
-    <main className="h-[calc(100vh-68px)] w-full overflow-hidden bg-[#020817] text-white">
+    <main className="h-[calc(100vh-68px)] w-full overflow-hidden bg-[#020817] text-white pt-[68px]" >
       <div className="flex h-full w-full">
 
         {/* CHAT WINDOW */}
@@ -31,14 +31,16 @@ export default function ChatSupport() {
             </h1>
 
             <p className="mt-3 text-sm leading-6 text-slate-400">
-              Meet the team behind the Ocean Data Visualization System.
+              Meet the team behind the Oceanis 3D.
             </p>
           </div>
 
-          {/* Developer 1 */}
+
+
+{/* Developer 1 */}
           <div className="mb-5 border-b border-white/10 pb-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 text-sm font-bold text-cyan-300">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-blue-400/20 bg-blue-400/10 text-sm font-bold text-blue-300">
                 AK
               </div>
 
@@ -48,61 +50,141 @@ export default function ChatSupport() {
                 </h2>
 
                 <p className="text-xs text-slate-500">
-                  Developer
+                  Team Lead & Lead Developer
                 </p>
               </div>
             </div>
 
             <p className="mt-3 text-xs leading-5 text-slate-400">
-              Frontend development, 3D visualization and system integration.
+             Overall system architecture, backend/API, scientific data pipeline, 
+             NetCDF integration, 3D visualization integration, application state, 
+             major frontend development, integration and debugging
             </p>
           </div>
+          
 
           {/* Developer 2 */}
           <div className="mb-5 border-b border-white/10 pb-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-blue-400/20 bg-blue-400/10 text-sm font-bold text-blue-300">
-                AA
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 text-sm font-bold text-cyan-300">
+                GA
               </div>
 
               <div>
                 <h2 className="text-sm font-semibold text-white">
-                  Developer Name
+                  Gunjan Aswani
                 </h2>
 
                 <p className="text-xs text-slate-500">
-                  Developer
+                 UI/UX & 3D Visualization Developer
                 </p>
               </div>
             </div>
 
             <p className="mt-3 text-xs leading-5 text-slate-400">
-              Backend services, API integration and scientific data handling.
+            Visualization interface, glassmorphic UI, control panel, status bar, 
+            scientific legend, colormap controls, visual presentation of ocean data
             </p>
           </div>
 
           {/* Developer 3 */}
-          <div className="mb-8 border-b border-white/10 pb-5">
+          <div className="mb-5 border-b border-white/10 pb-5">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-purple-400/20 bg-purple-400/10 text-sm font-bold text-purple-300">
-                DK
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 text-sm font-bold text-cyan-300">
+                SK
               </div>
 
               <div>
                 <h2 className="text-sm font-semibold text-white">
-                  Developer Name
+                  Shaizee Khan
                 </h2>
 
                 <p className="text-xs text-slate-500">
-                  Developer
+                  Frontend & Web Components Developer
                 </p>
               </div>
             </div>
 
             <p className="mt-3 text-xs leading-5 text-slate-400">
-              Data processing, visualization research and system testing.
+              React pages, reusable web components, frontend structure and interactions
             </p>
           </div>
+
+          
+
+          {/* Developer 4 */}
+          <div className="mb-8 border-b border-white/10 pb-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-purple-400/20 bg-purple-400/10 text-sm font-bold text-purple-300">
+                TK
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-white">
+                  Abu Talha Khan
+                </h2>
+
+                <p className="text-xs text-slate-500">
+                Documentation & Presentation 
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs leading-5 text-slate-400">
+              SRS, architecture/documentation, requirements organization, 
+              PPT preparation, diagrams, presentation structure and supporting material
+            </p>
+          </div>
+
+
+           {/* Developer 5 */}
+          <div className="mb-8 border-b border-white/10 pb-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-purple-400/20 bg-purple-400/10 text-sm font-bold text-purple-300">
+                AC
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-white">
+                  Anjali Choudhary
+                </h2>
+
+                <p className="text-xs text-slate-500">
+                  Research & Domain Analysis
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs leading-5 text-slate-400">
+              Problem-statement research, oceanographic/domain research,
+               existing-solution analysis, feature research and technical references
+            </p>
+          </div>
+
+          {/* Developer 6 */}
+          <div className="mb-8 border-b border-white/10 pb-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-purple-400/20 bg-purple-400/10 text-sm font-bold text-purple-300">
+                BM
+              </div>
+
+              <div>
+                <h2 className="text-sm font-semibold text-white">
+                  Bilal Mohd
+                </h2>
+
+                <p className="text-xs text-slate-500">
+                 Testing, Integration & QA Support
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-3 text-xs leading-5 text-slate-400">
+              Feature testing, UI/functionality verification,
+               bug identification, demo preparation and integration support
+            </p>
+          </div>
+
 
           {/* Project information */}
           <div className="rounded-2xl border border-cyan-400/10 bg-cyan-400/[0.03] p-4">

@@ -1268,7 +1268,8 @@ export default function ControlPanel() {
             />
             <span className="ocean-speed-badge">{state.animationSpeed || 1}x</span>
           </div>
-
+           </div>
+)}
       {/* Colormap Controls for scalar data fields */}
       {showDataControls && (
         <div className="ocean-card">
