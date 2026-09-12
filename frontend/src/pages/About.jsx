@@ -25,7 +25,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-[calc(100vh-72px)] w-full overflow-x-hidden overflow-y-auto text-[#ffffff] font-['Inter','Segoe_UI',system-ui,-apple-system,sans-serif] bg-[radial-gradient(circle_at_15%_20%,rgba(0,150,220,0.12),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(30,80,180,0.12),transparent_35%),linear-gradient(135deg,#020817_0%,#031525_50%,#020611_100%)]">
+    <div className="min-h-[calc(100vh-72px)] w-full overflow-x-hidden overflow-y-auto text-[#ffffff] font-['Inter','Segoe_UI',system-ui,-apple-system,sans-serif] bg-[radial-gradient(circle_at_15%_20%,rgba(0,150,220,0.12),transparent_35%),radial-gradient(circle_at_85%_80%,rgba(30,80,180,0.12),transparent_35%),linear-gradient(135deg,#020817_0%,#031525_50%,#020611_100%)] pt-[68px]">
       {/* Background glow */}
       <div className="fixed w-[500px] h-[500px] rounded-full bg-[rgba(0,180,255,0.07)] blur-[110px] -top-[180px] -right-[100px] pointer-events-none" />
 
