@@ -12,7 +12,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
 
   return (
     <nav className="h-[64px] min-h-[64px] w-full box-border flex items-center justify-between px-[28px] max-[700px]:px-[16px] relative z-[1000] pointer-events-auto bg-[#020817]/90 border-b border-[rgba(255,255,255,0.07)] shadow-[0_4px_20px_rgba(0,0,0,0.35)] backdrop-blur-[16px]">
-      {/* Left: OceanSight logo */}
+      {/* Left: Oceanis logo */}
       <div
         className="flex items-center gap-[10px] select-none cursor-pointer"
         onClick={() => handleNavigation("home")}
@@ -32,7 +32,7 @@ export default function Navbar({ currentPage, setCurrentPage }) {
         </svg>
 
         <span className="text-white text-[16px] font-bold tracking-[0.4px]">
-          OceanSight
+          Oceanis
         </span>
       </div>
 
