@@ -13,7 +13,7 @@ export default function Home({ onNavigate }) {
   }, []);
 
   return (
-<div className="relative min-h-screen w-full overflow-x-hidden overflow-y-auto text-[#ffffff] font-['Inter','Segoe_UI',system-ui,-apple-system,sans-serif] pt-[68px]">
+<div className="relative min-h-screen w-full overflow-x-hidden overflow-y-auto text-[#ffffff] font-['Inter','Segoe_UI',system-ui,-apple-system,sans-serif] pt-[68px]  ">
       {/* BACKGROUND VIDEO */}
       <video
   ref={videoRef}

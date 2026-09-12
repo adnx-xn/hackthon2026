@@ -16,12 +16,12 @@ export default function Visualization() {
   return (
     <div
       className="
-        relative
-        h-[calc(100vh-68px)]
-        w-full
-        overflow-hidden
-        bg-[#020817]
-      "
+    relative
+    h-screen
+    w-full
+    overflow-hidden
+    bg-red-500
+  "
     >
 
       {/* =====================================================
@@ -333,29 +333,22 @@ export default function Visualization() {
         ====================================================== */}
 
         <footer
-          className="
-            absolute
-            bottom-0
-            left-0
-            right-0
-            z-40
-
-            flex
-            h-8
-            items-center
-
-            border-t
-            border-cyan-400/10
-
-            bg-slate-950/75
-
-            text-[0.7rem]
-            text-slate-500
-
-            shadow-[0_-10px_30px_rgba(0,0,0,0.18)]
-
-            backdrop-blur-xl
-          "
+           className="
+    absolute
+    bottom-0
+    left-0
+    right-0
+    z-40
+    flex
+    h-8
+    items-center
+    border-t
+    border-cyan-400/10
+    bg-slate-950/90
+    text-[0.7rem]
+    text-slate-500
+    backdrop-blur-xl
+  "
         >
           <StatusBar />
         </footer>
