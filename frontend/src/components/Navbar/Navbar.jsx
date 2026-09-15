@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo.png";
 
 export default function Navbar({ currentPage, setCurrentPage }) {
   const handleNavigation = (page) => {
@@ -10,12 +11,12 @@ export default function Navbar({ currentPage, setCurrentPage }) {
 
   return (
     <nav className="h-[68px] min-h-[68px] w-full box-border flex items-center justify-between px-[28px] max-[700px]:px-[15px] fixed z-[1000] pointer-events-auto bg-gradient-to-b from-transparent to-[rgba(2,12,24,0.96)] border-b border-[rgba(90,180,220,0.14)] shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
-      <div className="flex items-center gap-[11px] select-none">
-        <div className="w-[34px] h-[34px] flex items-center justify-center rounded-[9px] text-[#63d9ff] text-[18px] bg-[radial-gradient(circle,rgba(65,210,255,0.22),rgba(20,100,160,0.08))] border border-[rgba(90,210,255,0.2)] shadow-[0_0_18px_rgba(40,190,255,0.08)] max-[480px]:hidden">◉</div>
+      <div className="flex items-center  select-none">
+        <div className="w-[100px] h-[100px] flex items-center justify-center"><img src={logo} alt="" /></div>
 
         <div className="flex flex-col gap-[1px]">
-          <span className="text-[#f3fbff] text-[14px] font-bold tracking-[0.8px] max-[700px]:text-[12px] max-[480px]:text-[11px]">INCOIS</span>
-          <span className="text-[rgba(190,220,235,0.48)] text-[9px] tracking-[1.1px] uppercase max-[700px]:hidden">3D Ocean Visualization</span>
+          <span className="text-[#f3fbff] text-[21px] font-bold tracking-[0.8px] max-[700px]:text-[12px] max-[480px]:text-[11px]">OCEANIS 3D</span>
+          <span className="text-[rgba(190,220,235,0.48)] text-[9px] tracking-[1.1px] uppercase max-[700px]:hidden">Oceanographic Data Visualization System</span>
         </div>
       </div>
 
